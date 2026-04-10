@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import ftsLogo from "@/assets/fts_logo.jpeg";
+import ThemeToggle from "./ThemeToggle";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -46,6 +47,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="#contact"
             className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition glow-sm"
@@ -86,13 +88,16 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            onClick={() => setMobileOpen(false)}
-            className="mt-2 block text-center px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold"
-          >
-            Join Network
-          </a>
+          <div className="flex items-center gap-3 mt-2">
+            <ThemeToggle />
+            <a
+              href="#contact"
+              onClick={() => setMobileOpen(false)}
+              className="flex-1 block text-center px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold"
+            >
+              Join Network
+            </a>
+          </div>
         </motion.div>
       )}
     </motion.nav>
