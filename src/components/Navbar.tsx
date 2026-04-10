@@ -47,6 +47,7 @@ const Navbar = () => {
               {l.label}
             </a>
           ))}
+          <ThemeToggle />
           <a
             href="#contact"
             className="px-5 py-2 rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition glow-sm"
