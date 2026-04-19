@@ -13,11 +13,9 @@ const HeroSection = () => {
           playsInline
           disablePictureInPicture
           preload="auto"
+          src="/all_details_ok_ami_amr_website.mp4"
           className="absolute inset-0 w-full h-full object-cover scale-105"
-        >
-          {/* আপনার ডাউনলোড করা ভিডিওটি public ফোল্ডারে রাখুন এবং নাম দিন website-bg.mp4 */}
-          <source src="/all_details_ok_ami_amr_website.mp4" type="video/mp4" />
-        </video>
+        />
         
         {/* Adaptive Overlay for Day/Night Mode (Premium Look) */}
         {/* Light mode-এ সাদা গ্লাস এফেক্ট এবং Dark mode-এ কালো গ্লাস এফেক্ট */}
