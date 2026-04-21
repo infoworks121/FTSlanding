@@ -19,8 +19,8 @@ const faqs = [
     a: "Profits are distributed transparently across all layers. In the B2B model: Admin gets 10%, Core Body 15%, and Businessman 20%. In B2C, the remaining margin covers product cost, platform fee, distribution, and retail.",
   },
   {
-    q: "Is FTS available outside Bangladesh?",
-    a: "FTS is currently operating within Bangladesh with plans for multi-region expansion in 2025 and global scaling by 2026 as per our roadmap.",
+    q: "Is FTS available outside India?",
+    a: "FTS is currently operating within India with plans for multi-region expansion in 2025 and global scaling by 2026 as per our roadmap.",
   },
   {
     q: "How does the automation work?",
