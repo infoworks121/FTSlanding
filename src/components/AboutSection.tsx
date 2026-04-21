@@ -12,10 +12,10 @@ const containerVariants = {
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" as const }
   }
 };
 
@@ -103,42 +103,38 @@ const AboutSection = () => {
               <div className="h-px flex-1 bg-gradient-to-r from-transparent via-border to-transparent mx-8 hidden md:block"></div>
             </div>
 
-            <div className="grid sm:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            <div className="grid sm:grid-cols-3 gap-8 max-w-5xl mx-auto">
               {[
-                { role: "CEO & Founder", name: "Ashraful Alam", bio: "Visionary leader driving the FTS ecosystem to empower businesses globally.", img: "/ceo-image.webp" },
-                { role: "Director", name: "Syed Fahad Reza", bio: "Tech architect building the automated, scalable infrastructure behind FTS.", img: "/director.png" },
-                { role: "Director", name: "Merina Begum", bio: "Strategic director overseeing operations and growth within the FTS ecosystem.", img: "/woman.avif" },
+                { role: "CEO & Founder", name: "Ashraful Alam", bio: "Visionary leader driving the FTS ecosystem to empower businesses globally." },
+                { role: "Director", name: "Syed Fahad Reza", bio: "Tech architect building the automated, scalable infrastructure behind FTS." },
+                { role: "Director", name: "Merina Begum", bio: "Strategic director overseeing operations and growth within the FTS ecosystem." },
               ].map((person, idx) => (
-                <motion.div 
+                <motion.div
                   key={idx}
-                  whileHover={{ y: -10 }}
-                  className="group relative"
+                  whileHover={{ y: -6, scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="group relative rounded-3xl overflow-hidden border border-border bg-card/60 backdrop-blur-sm p-8 flex flex-col items-center text-center cursor-default"
                 >
-                  <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-neutral-900 border border-white/5 relative">
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-                    {person.img ? (
-                      <img
-                        src={person.img}
-                        alt={person.role}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale group-hover:grayscale-0"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/5">
-                        <svg className="w-24 h-24 text-primary/40" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
-                        </svg>
-                      </div>
-                    )}
-                    
-                    {/* Text Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8 z-20">
-                      <p className="text-primary font-bold text-xs uppercase tracking-widest mb-2">{person.role}</p>
-                      <h4 className="text-2xl font-bold text-white mb-3">{person.name}</h4>
-                      <p className="text-white/60 text-sm leading-relaxed translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                        {person.bio}
-                      </p>
-                    </div>
-                  </div>
+                  {/* Glow blob */}
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 w-40 h-40 rounded-full bg-primary/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                  {/* Role badge */}
+                  <span className="relative z-10 inline-block px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-primary border border-primary/30 bg-primary/10 mb-6">
+                    {person.role}
+                  </span>
+
+                  {/* Name */}
+                  <h4 className="relative z-10 text-2xl sm:text-3xl font-extrabold tracking-tight mb-4 text-foreground leading-tight">
+                    {person.name}
+                  </h4>
+
+                  {/* Divider line */}
+                  <div className="relative z-10 w-12 h-[2px] rounded-full bg-gradient-to-r from-transparent via-primary to-transparent mb-4 group-hover:w-20 transition-all duration-500" />
+
+                  {/* Bio */}
+                  <p className="relative z-10 text-sm text-muted-foreground leading-relaxed group-hover:text-foreground/70 transition-colors duration-300">
+                    {person.bio}
+                  </p>
                 </motion.div>
               ))}
             </div>
